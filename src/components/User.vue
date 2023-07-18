@@ -1,25 +1,37 @@
 ﻿<script>
 export default {
   name: "User",
-  props: ["age"],
+  props: {
+    age: {
+      type: Number,
+      // required: true,
+      // default: 20
+      validator(value) {
+        return value < 130
+      }
+    }
+  },
   emits: ['age-change'],
   methods: {
     onClickAge() {
       this.$emit('age-change', 3)
-    }
+    },
   },
   computed: {
     ageDoubled() {
       return this.age * 2;
+    },
+    isAgeValid() {
+      return this.age < 130;
     }
   }
 }
 </script>
 
 <template>
-  <button @click="onClickAge">Increment age</button>
+  <button :disabled="!isAgeValid" @click="onClickAge">Increment age</button>
   <p>the user is {{ age }} years old</p>
-  <p>{{ageDoubled}}</p>
+  <p>{{ ageDoubled }}</p>
 </template>
 
 <style scoped lang="scss">
