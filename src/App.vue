@@ -13,6 +13,9 @@ export default {
   methods:{
     updateChange(ageNumber){
       this.age += ageNumber;
+    },
+    updateAgeCallBack(ageNumber){
+      this.age += ageNumber;
     }
   }
 }
@@ -21,7 +24,7 @@ export default {
 <template>
   <h3>Hey</h3>
   <Greeting :age="age"/>
-  <User :age="age" @age-change="updateChange"/>
+  <User :ageChangeFunction="updateAgeCallBack" :age="age" @age-change="updateChange"/>
 </template>
 
 

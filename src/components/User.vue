@@ -9,7 +9,8 @@ export default {
       validator(value) {
         return value < 130
       }
-    }
+    },
+    ageChangeFunction: Function
   },
   emits: ['age-change'],
   methods: {
@@ -29,7 +30,8 @@ export default {
 </script>
 
 <template>
-  <button :disabled="!isAgeValid" @click="onClickAge">Increment age</button>
+  <button :disabled="!isAgeValid" @click="onClickAge">Increment age event</button>
+  <button :disabled="!isAgeValid" @click="ageChangeFunction(3)">Update age Callback</button>
   <p>the user is {{ age }} years old</p>
   <p>{{ ageDoubled }}</p>
 </template>
