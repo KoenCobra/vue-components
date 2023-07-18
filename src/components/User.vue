@@ -2,10 +2,15 @@
 export default {
   name: "User",
   props: ["age"],
-  emits:['age-change'],
+  emits: ['age-change'],
   methods: {
-    onClickAge(){
+    onClickAge() {
       this.$emit('age-change', 3)
+    }
+  },
+  computed: {
+    ageDoubled() {
+      return this.age * 2;
     }
   }
 }
@@ -13,7 +18,8 @@ export default {
 
 <template>
   <button @click="onClickAge">Increment age</button>
-  <p>the user is {{age}} years old</p>
+  <p>the user is {{ age }} years old</p>
+  <p>{{ageDoubled}}</p>
 </template>
 
 <style scoped lang="scss">
