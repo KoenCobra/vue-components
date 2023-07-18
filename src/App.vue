@@ -10,13 +10,18 @@ export default {
       age: 20
     }
   },
+  methods:{
+    updateChange(ageNumber){
+      this.age += ageNumber;
+    }
+  }
 }
 </script>
 
 <template>
   <h3>Hey</h3>
   <Greeting :age="age"/>
-  <User :age="age" @age-change="age++"/>
+  <User :age="age" @age-change="updateChange"/>
 </template>
 
 

@@ -2,9 +2,10 @@
 export default {
   name: "User",
   props: ["age"],
+  emits:['age-change'],
   methods: {
     onClickAge(){
-      this.$emit('age-change')
+      this.$emit('age-change', 3)
     }
   }
 }
